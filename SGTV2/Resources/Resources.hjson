@@ -1,0 +1,20 @@
+{
+    "Shaders": {},
+    "ComputeShaders": {},
+    "Textures": {},
+    "Fonts": {},
+    "Cubemaps": {
+        "Space_1": {
+            "Name": "Space_1",
+            "Right": "Resources/Skyboxes/Space_1/Space_1_right.jpg",
+            "Left": "Resources/Skyboxes/Space_1/Space_1_left.jpg",
+            "Top": "Resources/Skyboxes/Space_1/Space_1_top.jpg",
+            "Bottom": "Resources/Skyboxes/Space_1/Space_1_bottom.jpg",
+            "Back": "Resources/Skyboxes/Space_1/Space_1_back.jpg",
+            "Front": "Resources/Skyboxes/Space_1/Space_1_front.jpg"
+        }
+    },
+    "Geometries": {
+        "Models": {}
+    }
+}

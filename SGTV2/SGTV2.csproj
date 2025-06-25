@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<EnableTransitiveProjectReferences>true</EnableTransitiveProjectReferences>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ICSharpCode.Decompiler" Version="9.1.0.7988" />
+		<PackageReference Include="ImGui.NET" Version="1.91.6.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="OpenTK" Version="4.9.4" />
+		<PackageReference Include="SixLabors.ImageSharp" Version="3.1.10" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Generated\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="RGL">
+	    <HintPath>D:\Github\OpenGLTests\OpenglTestConsole\RGL\bin\Debug\net8.0\RGL.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+
+
+</Project>
