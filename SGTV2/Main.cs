@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using SGTV2.Impl.EFS;
 using SGTV2.Impl.TestRSs;
 using RGL.Classes.Implementations.RenderScripts;
+using SGTV2.Impl.RS;
 
 namespace SGTV2
 {
@@ -39,7 +40,9 @@ namespace SGTV2
             Scene.Camera = new Camera();
             Scene.Camera.Position.Z = 3000f;
 
-            APISettings.CameraDepthFar = 4000f;
+            Settings.CameraDepthFar = 4000f;
+
+            Settings.Gamma = 1.0f;
 
             //CursorState = CursorState.Grabbed; // this isnt an fps cuh!
 
@@ -54,7 +57,9 @@ namespace SGTV2
             #region EFSs
             this.EveryFrameScripts.AddRange(
                 [
-                    new HandleMousePanning()
+                    new HandleMousePanning(),
+                    new HandleZoom()
+
                 ]
             );
             #endregion
@@ -64,7 +69,17 @@ namespace SGTV2
             this.RenderScripts.AddRange(
                 [
                     new RenderCenter(),
-                    new DisplaySceneInfo()
+                    new InitPostProcessing(),
+
+
+                    new AddStarMenu(),
+
+                    new DisplayMasterWindow(), // importante
+                    new DisplayRender(), // the scene render
+
+                    new DisplaySettings(),
+                    new DisplayDebug(),
+
                 ]
             );
 
@@ -93,13 +108,16 @@ namespace SGTV2
             }
 
 
-            _controller = new ImGuiController(ClientSize.X, ClientSize.Y);
+            _controller = new ImGuiController(ClientSize.X, ClientSize.Y, true);
 
         }
 
         protected override void OnRenderFrame(FrameEventArgs args)
         {
             base.OnRenderFrame(args);
+            if (!this.IsFocused)
+                return;
+
             _controller.Update(this, (float)args.Time);
 
             // rendered everything we need to render

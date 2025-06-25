@@ -2,10 +2,11 @@
 global using OpenglTestConsole.Generated.Paths;
 global using RGL.Generated.Paths;
 global using OpenTK.Mathematics;
+global using ImGuiNET;
+global using RGL.API;
 
 using OpenTK.Windowing.Desktop;
 using RGL.API.Misc;
-using RGL.API;
 
 
 namespace SGTV2

@@ -9,11 +9,15 @@ namespace SGTV2.Impl.RS
 {
     public class AddStarMenu : RenderScript
     {
-        public override void Init()
+        public override void Advance()
         {
+            ImGui.Begin("AddStar");
+
+            ImGui.End();
         }
 
-        public override void Advance()
+
+        public override void Init()
         {
         }
     }

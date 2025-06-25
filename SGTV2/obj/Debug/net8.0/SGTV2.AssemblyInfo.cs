@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SGTV2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22e99383084452564ecf708be456cf1a7851b321")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9824f02ccb5e167195a4026903d5940bec79618a")]
 [assembly: System.Reflection.AssemblyProductAttribute("SGTV2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SGTV2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
