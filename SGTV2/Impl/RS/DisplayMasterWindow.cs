@@ -42,7 +42,6 @@ namespace SGTV2.Impl.RS
             {
                 if (ImGui.BeginMenu("Tools"))
                 { // todo: cook, harder jesse, cook the star
-                    // Menu item that toggles the static boolean
                     if (ImGui.MenuItem("Toggle Settings", null, Settings.DisplaySettingsMenu))
                         Settings.DisplaySettingsMenu = !Settings.DisplaySettingsMenu;
 

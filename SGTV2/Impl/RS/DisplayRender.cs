@@ -16,16 +16,18 @@ namespace SGTV2.Impl.RS
 
             ImGui.Begin("Scene");
 
-            Texture tex = RenderMisc.GetScreenFBO(Scene).ColorTexture;
+            Texture tex = RenderMisc.GetSceneFBO(Scene).ColorTexture;
 
             IntPtr texId = new IntPtr(tex.Handle);
 
             System.Numerics.Vector2 size = ImGui.GetWindowSize();
             Vector2i newSceneSize = new((int)size.X, (int)size.Y);
 
-            if (newSceneSize != APISettings.SceneResolution)
+            if (newSceneSize != Scene.Resolution)
             {
-                APISettings.SceneResolution = newSceneSize;
+                Scene.Resolution = newSceneSize;
+                Scene.Camera.screenWidth = newSceneSize.X;
+                Scene.Camera.screenHeight = newSceneSize.Y;
                 Scene.UpdateFBOs();
             }
 
@@ -33,6 +35,7 @@ namespace SGTV2.Impl.RS
             var uv1 = new System.Numerics.Vector2(1f, 0f);
 
             ImGui.Image(texId, size, uv0, uv1);
+            Scene.IsMouseOverFBO = ImGui.IsItemHovered();
 
             ImGui.End();
         }

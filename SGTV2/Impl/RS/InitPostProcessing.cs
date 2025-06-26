@@ -1,5 +1,6 @@
 ﻿using RGL.API.Rendering;
 using RGL.API.Rendering.Materials;
+using RGL.API.Rendering.Shaders;
 using RGL.API.Rendering.Textures;
 using System;
 using System.Collections.Generic;

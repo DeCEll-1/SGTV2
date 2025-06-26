@@ -28,7 +28,7 @@ namespace SGTV2
         public List<EveryFrameScript> EveryFrameScripts { get; set; } =
             new List<EveryFrameScript>();
         public List<RenderScript> RenderScripts { get; set; } = new List<RenderScript>();
-        private Camera Camera => Scene.Camera;
+        private Camera Camera => mainScene.Camera;
 
         [SetsRequiredMembers]
         public Main(
@@ -37,8 +37,14 @@ namespace SGTV2
         )
             : base(gameWindowSettings, nativeWindowSettings)
         {
-            Scene.Camera = new Camera();
-            Scene.Camera.Position.Z = 3000f;
+            ResourceController.Init(typeof(AppResources));
+
+            mainScene.Camera = new Camera();
+
+            mainScene.Camera.screenWidth = APISettings.Resolution.X;
+            mainScene.Camera.screenHeight = APISettings.Resolution.Y;
+
+            mainScene.Camera.Position.Z = 3000f;
 
             Settings.CameraDepthFar = 4000f;
 
@@ -85,7 +91,6 @@ namespace SGTV2
 
             #endregion
 
-            ResourceController.Init(typeof(AppResources));
         }
 
         protected override void OnLoad()
@@ -94,19 +99,9 @@ namespace SGTV2
 
             GL.ClearColor(0.0f, 0.1f, 0.05f, 1.0f);
 
-            mainScene.Init(renderScripts: RenderScripts);
+            mainScene.Resolution = APISettings.Resolution;
+            mainScene.Init(renderScripts: RenderScripts, everyFrameScripts: EveryFrameScripts, window: this);
             mainScene.SkyboxCubeMap = Resources.Cubemaps[AppResources.Cubemaps.Space_1.Name];
-
-            foreach (var script in EveryFrameScripts)
-            {
-                script.KeyboardState = this.KeyboardState;
-                script.MouseState = this.MouseState;
-                script.Camera = Scene.Camera;
-                script.MainInstance = this;
-
-                script.Init();
-            }
-
 
             _controller = new ImGuiController(ClientSize.X, ClientSize.Y, true);
 
@@ -121,7 +116,7 @@ namespace SGTV2
             _controller.Update(this, (float)args.Time);
 
             // rendered everything we need to render
-            mainScene.Render(args: args);
+            mainScene.Render(args: args, window: this);
 
             //GL.Disable(EnableCap.DepthTest);
             //GL.DepthMask(false);
@@ -145,15 +140,7 @@ namespace SGTV2
             if (!IsFocused) // check to see if the window is focused
                 return;
 
-            foreach (var script in EveryFrameScripts)
-            {
-                script.args = args;
-                script.KeyboardState = this.KeyboardState;
-                script.MouseState = this.MouseState;
-                script.Camera = this.Camera;
-                script.MainInstance = this;
-                script.Advance();
-            }
+            mainScene.RunEveryFrameScripts(args: args, window: this);
 
             OpenTK.Graphics.OpenGL.ErrorCode error = GL.GetError();
             if (error != OpenTK.Graphics.OpenGL.ErrorCode.NoError)
@@ -182,7 +169,7 @@ namespace SGTV2
             // Tell ImGui of the new size
             _controller.WindowResized(e.Width, e.Height);
 
-            mainScene.UpdateFBOs();
+            //mainScene.UpdateFBOs();
         }
 
         protected override void OnTextInput(TextInputEventArgs e)

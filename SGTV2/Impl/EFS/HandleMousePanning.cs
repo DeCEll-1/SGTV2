@@ -1,5 +1,6 @@
 ﻿using OpenTK.Windowing.GraphicsLibraryFramework;
 using RGL.API;
+using RGL.API.SceneFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,10 @@ namespace SGTV2.Impl.EFS
 
             if (MouseState.IsButtonDown(MouseButton.Right)) // This bool variable is initially set to true.
             {
+
+                if (!Scene.IsMouseOverFBO)
+                    return;
+
                 //skip if we just started the panning
                 if (LastPos == Vector2.Zero)
                 {
