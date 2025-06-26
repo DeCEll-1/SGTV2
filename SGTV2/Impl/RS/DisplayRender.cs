@@ -11,6 +11,7 @@ namespace SGTV2.Impl.RS
 {
     internal class DisplayRender : RenderScript
     {
+        static Vector2 previousSize = Vector2.Zero;
         public override void Advance()
         {
 
@@ -20,10 +21,11 @@ namespace SGTV2.Impl.RS
 
             IntPtr texId = new IntPtr(tex.Handle);
 
-            System.Numerics.Vector2 size = ImGui.GetWindowSize();
+
+            System.Numerics.Vector2 size = ImGui.GetContentRegionAvail();
             Vector2i newSceneSize = new((int)size.X, (int)size.Y);
 
-            if (newSceneSize != Scene.Resolution)
+            if (newSceneSize != Scene.Resolution && newSceneSize == previousSize)
             {
                 Scene.Resolution = newSceneSize;
                 Scene.Camera.screenWidth = newSceneSize.X;
@@ -38,6 +40,8 @@ namespace SGTV2.Impl.RS
             Scene.IsMouseOverFBO = ImGui.IsItemHovered();
 
             ImGui.End();
+
+            previousSize = newSceneSize;
         }
 
         public override void Init()

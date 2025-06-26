@@ -17,6 +17,7 @@ using SGTV2.Impl.EFS;
 using SGTV2.Impl.TestRSs;
 using RGL.Classes.Implementations.RenderScripts;
 using SGTV2.Impl.RS;
+using ICSharpCode.Decompiler.CSharp.Resolver;
 
 namespace SGTV2
 {
@@ -37,28 +38,13 @@ namespace SGTV2
         )
             : base(gameWindowSettings, nativeWindowSettings)
         {
+
+            Logger.LogOpenglAttributes();
+
             ResourceController.Init(typeof(AppResources));
 
-            mainScene.Camera = new Camera();
+            this.WindowState = Settings.WindowState;
 
-            mainScene.Camera.screenWidth = APISettings.Resolution.X;
-            mainScene.Camera.screenHeight = APISettings.Resolution.Y;
-
-            mainScene.Camera.Position.Z = 3000f;
-
-            Settings.CameraDepthFar = 4000f;
-
-            Settings.Gamma = 1.0f;
-
-            //CursorState = CursorState.Grabbed; // this isnt an fps cuh!
-
-            //Logger.Log($"{GL.GetInteger(GetPName.MaxVertexAttribs)}", LogLevel.Info);
-
-            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
-            GL.Enable(EnableCap.DepthTest);
-            GL.DepthFunc(DepthFunction.Less);
-
-            Scene.Lights.Add(new Light(new Vector3(-70f, 50f, -50f), new Vector3(1.0f, 1.0f, 1.0f)));
 
             #region EFSs
             this.EveryFrameScripts.AddRange(
@@ -78,18 +64,36 @@ namespace SGTV2
                     new InitPostProcessing(),
 
 
-                    new AddStarMenu(),
 
                     new DisplayMasterWindow(), // importante
                     new DisplayRender(), // the scene render
 
                     new DisplaySettings(),
                     new DisplayDebug(),
+                    new AddStarMenu(),
 
                 ]
             );
 
             #endregion
+
+
+            mainScene.Camera = new Camera();
+
+            mainScene.Camera.screenWidth = Settings.Resolution.X;
+            mainScene.Camera.screenHeight = Settings.Resolution.Y;
+
+            mainScene.Camera.Position.Z = 3000f;
+
+            mainScene.Lights.Add(new Light(new Vector3(-70f, 50f, -50f), new Vector3(1.0f, 1.0f, 1.0f)));
+
+            mainScene.Resolution = APISettings.Resolution;
+
+
+            mainScene.Init(renderScripts: RenderScripts, everyFrameScripts: EveryFrameScripts, window: this);
+            mainScene.SkyboxCubeMap = Resources.Cubemaps[AppResources.Cubemaps.Space_1.Name];
+
+            _controller = new ImGuiController(ClientSize.X, ClientSize.Y, true);
 
         }
 
@@ -98,13 +102,9 @@ namespace SGTV2
             base.OnLoad();
 
             GL.ClearColor(0.0f, 0.1f, 0.05f, 1.0f);
-
-            mainScene.Resolution = APISettings.Resolution;
-            mainScene.Init(renderScripts: RenderScripts, everyFrameScripts: EveryFrameScripts, window: this);
-            mainScene.SkyboxCubeMap = Resources.Cubemaps[AppResources.Cubemaps.Space_1.Name];
-
-            _controller = new ImGuiController(ClientSize.X, ClientSize.Y, true);
-
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+            GL.Enable(EnableCap.DepthTest);
+            GL.DepthFunc(DepthFunction.Less);
         }
 
         protected override void OnRenderFrame(FrameEventArgs args)
@@ -115,19 +115,11 @@ namespace SGTV2
 
             _controller.Update(this, (float)args.Time);
 
-            // rendered everything we need to render
+            // rendered everything we need to render before rendering the ui
             mainScene.Render(args: args, window: this);
-
-            //GL.Disable(EnableCap.DepthTest);
-            //GL.DepthMask(false);
-            //GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
-            //GL.Enable(EnableCap.Blend);
 
             _controller.Render();
 
-            //GL.DepthMask(true);
-            //GL.Enable(EnableCap.DepthTest);
-            //GL.Disable(EnableCap.Blend);
             ImGuiController.CheckGLError("End of frame");
 
             SwapBuffers();
@@ -150,6 +142,7 @@ namespace SGTV2
 
             if (KeyboardState.IsKeyDown(Keys.Escape))
             {
+                Settings.Save<Settings>();
                 Close();
             }
 
@@ -169,6 +162,8 @@ namespace SGTV2
             // Tell ImGui of the new size
             _controller.WindowResized(e.Width, e.Height);
 
+            Settings.WindowState = this.WindowState;
+
             //mainScene.UpdateFBOs();
         }
 
@@ -186,5 +181,17 @@ namespace SGTV2
 
             _controller.MouseScroll(e.Offset);
         }
+
+        protected override void OnMinimized(MinimizedEventArgs e)
+        {
+            base.OnMinimized(e);
+            Settings.WindowState = this.WindowState;
+        }
+        protected override void OnMaximized(MaximizedEventArgs e)
+        {
+            base.OnMaximized(e);
+            Settings.WindowState = this.WindowState;
+        }
+
     }
 }

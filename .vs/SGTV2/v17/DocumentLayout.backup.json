@@ -3,24 +3,27 @@
   "WorkspaceRootPath": "D:\\Github\\SGTV2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|d:\\github\\sgtv2\\sgtv2\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|solutionrelative:sgtv2\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|d:\\github\\sgtv2\\sgtv2\\impl\\efs\\handlemousepanning.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|solutionrelative:sgtv2\\impl\\efs\\handlemousepanning.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|d:\\github\\sgtv2\\sgtv2\\impl\\rs\\displayrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|solutionrelative:sgtv2\\impl\\rs\\displayrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|d:\\github\\sgtv2\\sgtv2\\impl\\rs\\initpostprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|solutionrelative:sgtv2\\impl\\rs\\initpostprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|d:\\github\\sgtv2\\sgtv2\\impl\\rs\\displaymasterwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|solutionrelative:sgtv2\\impl\\rs\\displaymasterwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|d:\\github\\sgtv2\\sgtv2\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|solutionrelative:sgtv2\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|d:\\github\\sgtv2\\sgtv2\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|solutionrelative:sgtv2\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|d:\\github\\sgtv2\\sgtv2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEC20C94-8BF4-4AE8-ACF0-D40E86ADEF14}|SGTV2\\SGTV2.csproj|solutionrelative:sgtv2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\OpenGLTests\\OpenglTestConsole\\RGL\\API\\ReflectiveSettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +33,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Main.cs",
-              "DocumentMoniker": "D:\\Github\\SGTV2\\SGTV2\\Main.cs",
-              "RelativeDocumentMoniker": "SGTV2\\Main.cs",
-              "ToolTip": "D:\\Github\\SGTV2\\SGTV2\\Main.cs",
-              "RelativeToolTip": "SGTV2\\Main.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAYwG4AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T08:03:05.868Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HandleMousePanning.cs",
-              "DocumentMoniker": "D:\\Github\\SGTV2\\SGTV2\\Impl\\EFS\\HandleMousePanning.cs",
-              "RelativeDocumentMoniker": "SGTV2\\Impl\\EFS\\HandleMousePanning.cs",
-              "ToolTip": "D:\\Github\\SGTV2\\SGTV2\\Impl\\EFS\\HandleMousePanning.cs",
-              "RelativeToolTip": "SGTV2\\Impl\\EFS\\HandleMousePanning.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBsAAAA1AAAAAAAAAA==",
+              "Title": "DisplayMasterWindow.cs",
+              "DocumentMoniker": "D:\\Github\\SGTV2\\SGTV2\\Impl\\RS\\DisplayMasterWindow.cs",
+              "RelativeDocumentMoniker": "SGTV2\\Impl\\RS\\DisplayMasterWindow.cs",
+              "ToolTip": "D:\\Github\\SGTV2\\SGTV2\\Impl\\RS\\DisplayMasterWindow.cs",
+              "RelativeToolTip": "SGTV2\\Impl\\RS\\DisplayMasterWindow.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T07:10:59.63Z",
+              "WhenOpened": "2025-06-26T09:17:33.467Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "InitPostProcessing.cs",
-              "DocumentMoniker": "D:\\Github\\SGTV2\\SGTV2\\Impl\\RS\\InitPostProcessing.cs",
-              "RelativeDocumentMoniker": "SGTV2\\Impl\\RS\\InitPostProcessing.cs",
-              "ToolTip": "D:\\Github\\SGTV2\\SGTV2\\Impl\\RS\\InitPostProcessing.cs",
-              "RelativeToolTip": "SGTV2\\Impl\\RS\\InitPostProcessing.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T06:54:08.48Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "DisplayRender.cs",
               "DocumentMoniker": "D:\\Github\\SGTV2\\SGTV2\\Impl\\RS\\DisplayRender.cs",
               "RelativeDocumentMoniker": "SGTV2\\Impl\\RS\\DisplayRender.cs",
               "ToolTip": "D:\\Github\\SGTV2\\SGTV2\\Impl\\RS\\DisplayRender.cs",
               "RelativeToolTip": "SGTV2\\Impl\\RS\\DisplayRender.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAgwCUAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwB0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T06:53:30.718Z",
+              "WhenOpened": "2025-06-26T09:10:13.896Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Github\\SGTV2\\SGTV2\\Program.cs",
+              "RelativeDocumentMoniker": "SGTV2\\Program.cs",
+              "ToolTip": "D:\\Github\\SGTV2\\SGTV2\\Program.cs",
+              "RelativeToolTip": "SGTV2\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T09:09:07.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReflectiveSettings.cs",
+              "DocumentMoniker": "D:\\Github\\OpenGLTests\\OpenglTestConsole\\RGL\\API\\ReflectiveSettings.cs",
+              "RelativeDocumentMoniker": "..\\OpenGLTests\\OpenglTestConsole\\RGL\\API\\ReflectiveSettings.cs",
+              "ToolTip": "D:\\Github\\OpenGLTests\\OpenglTestConsole\\RGL\\API\\ReflectiveSettings.cs",
+              "RelativeToolTip": "..\\OpenGLTests\\OpenglTestConsole\\RGL\\API\\ReflectiveSettings.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAswCYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T08:48:53.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Main.cs",
+              "DocumentMoniker": "D:\\Github\\SGTV2\\SGTV2\\Main.cs",
+              "RelativeDocumentMoniker": "SGTV2\\Main.cs",
+              "ToolTip": "D:\\Github\\SGTV2\\SGTV2\\Main.cs",
+              "RelativeToolTip": "SGTV2\\Main.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAMwLgAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T08:43:11.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Settings.cs",
               "DocumentMoniker": "D:\\Github\\SGTV2\\SGTV2\\Settings.cs",
               "RelativeDocumentMoniker": "SGTV2\\Settings.cs",
               "ToolTip": "D:\\Github\\SGTV2\\SGTV2\\Settings.cs",
               "RelativeToolTip": "SGTV2\\Settings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T10:51:31.517Z",
+              "WhenOpened": "2025-06-26T08:16:07.242Z",
               "EditorCaption": ""
             }
           ]

@@ -1,4 +1,5 @@
-﻿using RGL.API;
+﻿using OpenTK.Windowing.Common;
+using RGL.API;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace SGTV2
 {
     public class Settings : APISettings
     {
-        public static bool DisplaySettingsMenu = false;
-        public static bool DisplayStarMenu = false;
+        public static bool DisplaySettingsMenu { get; set; } = false;
+        public static bool DisplayStarMenu { get; set; } = false;
+        public static WindowState WindowState{ get; set; } = WindowState.Normal;
     }
 }

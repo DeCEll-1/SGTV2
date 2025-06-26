@@ -18,7 +18,9 @@ namespace SGTV2
         {
             Logger.Log($"Started app with arguments:\n{string.Concat(args)}", LogLevel.Info);
 
-            APISettings.Fov = 90f;
+            Settings.AppName = "SGTV2";
+
+            Settings.Load<Settings>();
 
             GameWindowSettings gameWindowSettings = GameWindowSettings.Default;
             NativeWindowSettings nativeWindowSettings = new NativeWindowSettings
@@ -27,6 +29,7 @@ namespace SGTV2
                 Title = "SGT",
                 DepthBits = 24,
             };
+
 
             gameWindowSettings.UpdateFrequency = 60;
 
