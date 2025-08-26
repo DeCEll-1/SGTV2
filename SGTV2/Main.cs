@@ -18,18 +18,22 @@ using SGTV2.Impl.TestRSs;
 using RGL.Classes.Implementations.RenderScripts;
 using SGTV2.Impl.RS;
 using ICSharpCode.Decompiler.CSharp.Resolver;
+using RGL.API.Rendering.Textures;
 
 namespace SGTV2
 {
     public class Main : GameWindow
     {
         ImGuiController _controller;
-
-        public static Scene mainScene = new Scene();
-        public List<EveryFrameScript> EveryFrameScripts { get; set; } =
-            new List<EveryFrameScript>();
-        public List<RenderScript> RenderScripts { get; set; } = new List<RenderScript>();
-        private Camera Camera => mainScene.Camera;
+        public List<RenderScript> ImguiRenderScripts;
+        public Type OnWindow
+        {
+            get; set
+            {
+                field = value;
+            }
+        }
+        public Scene SystemScene;
 
         [SetsRequiredMembers]
         public Main(
@@ -38,61 +42,54 @@ namespace SGTV2
         )
             : base(gameWindowSettings, nativeWindowSettings)
         {
-
+            Logger.PrintEmptyLine();
             Logger.LogOpenglAttributes();
+
+            Logger.PrintTestColors();
 
             ResourceController.Init(typeof(AppResources));
 
             this.WindowState = Settings.WindowState;
 
 
-            #region EFSs
-            this.EveryFrameScripts.AddRange(
-                [
+            #region System Rendering Scene
+
+            List<EveryFrameScript> SystemEFSs = new List<EveryFrameScript>()
+            {
                     new HandleMousePanning(),
                     new HandleZoom()
+            };
 
-                ]
-            );
+            List<RenderScript> SystemRenderScripts = new()
+            {
+                    //new RenderCenter(),
+                    new InitCommonPostProcessing(),
+
+                    new DisplayRender(), // the scene render
+
+            };
+
+            SystemScene = new Scene(Settings.SystemSceneResolution, skyboxCubemap: Resources.Cubemaps[AppResources.Cubemaps.Space_1.Name]);
+
+            SystemScene.Camera.Position.Z = 3000f;
+
+            SystemScene.Init(renderScripts: SystemRenderScripts, everyFrameScripts: SystemEFSs, window: this);
+
             #endregion
 
-            #region Render Scripts
 
-            this.RenderScripts.AddRange(
-                [
-                    new RenderCenter(),
-                    new InitPostProcessing(),
-
-
-
+            this.ImguiRenderScripts = new()
+            {
                     new DisplayMasterWindow(), // importante
-                    new DisplayRender(), // the scene render
+
+                    new DisplayGameFolderSelection(),
 
                     new DisplaySettings(),
                     new DisplayDebug(),
                     new AddStarMenu(),
+            };
 
-                ]
-            );
-
-            #endregion
-
-
-            mainScene.Camera = new Camera();
-
-            mainScene.Camera.screenWidth = Settings.Resolution.X;
-            mainScene.Camera.screenHeight = Settings.Resolution.Y;
-
-            mainScene.Camera.Position.Z = 3000f;
-
-            mainScene.Lights.Add(new Light(new Vector3(-70f, 50f, -50f), new Vector3(1.0f, 1.0f, 1.0f)));
-
-            mainScene.Resolution = APISettings.Resolution;
-
-
-            mainScene.Init(renderScripts: RenderScripts, everyFrameScripts: EveryFrameScripts, window: this);
-            mainScene.SkyboxCubeMap = Resources.Cubemaps[AppResources.Cubemaps.Space_1.Name];
-
+            // init imgui controller
             _controller = new ImGuiController(ClientSize.X, ClientSize.Y, true);
 
         }
@@ -105,6 +102,15 @@ namespace SGTV2
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
             GL.Enable(EnableCap.DepthTest);
             GL.DepthFunc(DepthFunction.Less);
+
+            // render the imgui windows (that are unrelated to scenes)
+            foreach (RenderScript script in this.ImguiRenderScripts)
+            {
+                // the scene timer is global
+                script.Timer = Scene.Timer; script.Window = this;
+
+                script.Init();
+            }
         }
 
         protected override void OnRenderFrame(FrameEventArgs args)
@@ -115,8 +121,22 @@ namespace SGTV2
 
             _controller.Update(this, (float)args.Time);
 
-            // rendered everything we need to render before rendering the ui
-            mainScene.Render(args: args, window: this);
+
+            // render the imgui windows (that are unrelated to scenes)
+            foreach (RenderScript script in this.ImguiRenderScripts)
+            {
+                // advance the render scripts
+                script.args = args; script.Timer = Scene.Timer; script.Window = this;
+
+                script.Advance();
+            }
+
+
+            // rendered the star system
+            SystemScene.Render(args: args, window: this);
+
+
+            ImguiNotification.RenderNotifications();
 
             _controller.Render();
 
@@ -132,21 +152,28 @@ namespace SGTV2
             if (!IsFocused) // check to see if the window is focused
                 return;
 
-            mainScene.RunEveryFrameScripts(args: args, window: this);
-
+            SystemScene.RunEveryFrameScripts(args: args, window: this);
+            
             OpenTK.Graphics.OpenGL.ErrorCode error = GL.GetError();
             if (error != OpenTK.Graphics.OpenGL.ErrorCode.NoError)
             {
-                Logger.LogWithoutGLErrorCheck(error.ToString(), LogLevel.Error);
+                Logger.LogWithoutGLErrorCheck(error.ToString());
             }
 
             if (KeyboardState.IsKeyDown(Keys.Escape))
             {
-                Settings.Save<Settings>();
                 Close();
             }
 
+            this.OnWindow = typeof(Main);
 
+
+        }
+
+        public override void Close()
+        {
+            Settings.Save<Settings>();
+            base.Close();
         }
 
         protected override void OnResize(ResizeEventArgs e)

@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "CsvHelper/33.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "ICSharpCode.Decompiler/9.1.0.7988": {
         "type": "package",
         "dependencies": {
@@ -54,6 +67,135 @@
             "rid": "win-x64"
           },
           "runtimes/win-x86/native/cimgui.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "Magick.NET-Q8-AnyCPU/14.8.0": {
+        "type": "package",
+        "dependencies": {
+          "Magick.NET.Core": "14.8.0"
+        },
+        "compile": {
+          "lib/net8.0/Magick.NET-Q8-AnyCPU.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Magick.NET-Q8-AnyCPU.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard20/Magick.NET-Q8-AnyCPU.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/Magick.Native-Q8-arm64.dll.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-musl-x64/native/Magick.Native-Q8-x64.dll.so": {
+            "assetType": "native",
+            "rid": "linux-musl-x64"
+          },
+          "runtimes/linux-x64/native/Magick.Native-Q8-x64.dll.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-arm64/native/Magick.Native-Q8-arm64.dll.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-x64/native/Magick.Native-Q8-x64.dll.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-arm64/native/Magick.Native-Q8-arm64.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/Magick.Native-Q8-x64.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/Magick.Native-Q8-x86.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "Magick.NET.Core/14.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Magick.NET.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Magick.NET.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NativeFileDialogSharp/0.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NativeFileDialogSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NativeFileDialogSharp.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/netstandard2.0/nfd.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard2.0/nfd_x86.dll": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libnfd.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-x64/native/libnfd.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-x64/native/nfd.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/nfd.exp": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/nfd.lib": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/nfd.pdb": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/nfd.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          },
+          "runtimes/win-x86/native/nfd.exp": {
+            "assetType": "native",
+            "rid": "win-x86"
+          },
+          "runtimes/win-x86/native/nfd.lib": {
+            "assetType": "native",
+            "rid": "win-x86"
+          },
+          "runtimes/win-x86/native/nfd.pdb": {
             "assetType": "native",
             "rid": "win-x86"
           }
@@ -259,22 +401,6 @@
           }
         }
       },
-      "SixLabors.ImageSharp/3.1.10": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/SixLabors.ImageSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/SixLabors.ImageSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "build/SixLabors.ImageSharp.props": {}
-        }
-      },
       "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
@@ -350,6 +476,32 @@
     }
   },
   "libraries": {
+    "CsvHelper/33.1.0": {
+      "sha512": "kqfTOZGrn7NarNeXgjh86JcpTHUoeQDMB8t9NVa/ZtlSYiV1rxfRnQ49WaJsob4AiGrbK0XDzpyKkBwai4F8eg==",
+      "type": "package",
+      "path": "csvhelper/33.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.33.1.0.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net462/CsvHelper.dll",
+        "lib/net462/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/net48/CsvHelper.dll",
+        "lib/net48/CsvHelper.xml",
+        "lib/net8.0/CsvHelper.dll",
+        "lib/net8.0/CsvHelper.xml",
+        "lib/net9.0/CsvHelper.dll",
+        "lib/net9.0/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
+      ]
+    },
     "ICSharpCode.Decompiler/9.1.0.7988": {
       "sha512": "N5HEh7n/9GpnkH6ojwPbzWbO1Ma+SFZCKafz69uRLnkt/bWzPON7wf7NLxTdU/fGWPnG2TEXRsu5DnRyvIQSaQ==",
       "type": "package",
@@ -388,6 +540,78 @@
         "runtimes/win-arm64/native/cimgui.dll",
         "runtimes/win-x64/native/cimgui.dll",
         "runtimes/win-x86/native/cimgui.dll"
+      ]
+    },
+    "Magick.NET-Q8-AnyCPU/14.8.0": {
+      "sha512": "pKS7o1OH2lj40h82ryl0pdxGjnnpE+G0fqI8/NKD+s4851v7XY5B0hBvHFbmjj4qBjZGHU2TgeMpJyvz/Nb5bg==",
+      "type": "package",
+      "path": "magick.net-q8-anycpu/14.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Magick.NET.icon.png",
+        "Notice.txt",
+        "build/netstandard20/Magick.NET-Q8-AnyCPU.targets",
+        "buildTransitive/netstandard20/Magick.NET-Q8-AnyCPU.targets",
+        "docs/Readme.md",
+        "lib/net8.0/Magick.NET-Q8-AnyCPU.dll",
+        "lib/net8.0/Magick.NET-Q8-AnyCPU.xml",
+        "lib/netstandard20/Magick.NET-Q8-AnyCPU.dll",
+        "lib/netstandard20/Magick.NET-Q8-AnyCPU.xml",
+        "magick.net-q8-anycpu.14.8.0.nupkg.sha512",
+        "magick.net-q8-anycpu.nuspec",
+        "runtimes/linux-arm64/native/Magick.Native-Q8-arm64.dll.so",
+        "runtimes/linux-musl-x64/native/Magick.Native-Q8-x64.dll.so",
+        "runtimes/linux-x64/native/Magick.Native-Q8-x64.dll.so",
+        "runtimes/osx-arm64/native/Magick.Native-Q8-arm64.dll.dylib",
+        "runtimes/osx-x64/native/Magick.Native-Q8-x64.dll.dylib",
+        "runtimes/win-arm64/native/Magick.Native-Q8-arm64.dll",
+        "runtimes/win-x64/native/Magick.Native-Q8-x64.dll",
+        "runtimes/win-x86/native/Magick.Native-Q8-x86.dll"
+      ]
+    },
+    "Magick.NET.Core/14.8.0": {
+      "sha512": "H5mrY7/vF9bz+rzCXiJvWnE4IrFQXNxaMWikfrwejFIqtsyDBigaR3U4x6KOZjbO8lo2/dXTuqoYfKgwC+QpJg==",
+      "type": "package",
+      "path": "magick.net.core/14.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Copyright.txt",
+        "Magick.NET.icon.png",
+        "docs/Readme.md",
+        "lib/net8.0/Magick.NET.Core.dll",
+        "lib/net8.0/Magick.NET.Core.xml",
+        "lib/netstandard20/Magick.NET.Core.dll",
+        "lib/netstandard20/Magick.NET.Core.xml",
+        "magick.net.core.14.8.0.nupkg.sha512",
+        "magick.net.core.nuspec"
+      ]
+    },
+    "NativeFileDialogSharp/0.5.0": {
+      "sha512": "OvASDrHJhY1OzD3Cr9Pw7sgaj+WliK0CAD+0HL14jPJMxnkirC5vr3XhxbY24MKwkxANNgmN+ao7iiNOopOSqQ==",
+      "type": "package",
+      "path": "nativefiledialogsharp/0.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/nfd.dll",
+        "content/nfd_x86.dll",
+        "contentFiles/any/netstandard2.0/nfd.dll",
+        "contentFiles/any/netstandard2.0/nfd_x86.dll",
+        "lib/netstandard2.0/NativeFileDialogSharp.dll",
+        "nativefiledialogsharp.0.5.0.nupkg.sha512",
+        "nativefiledialogsharp.nuspec",
+        "runtimes/linux-x64/native/libnfd.so",
+        "runtimes/osx-x64/native/libnfd.dylib",
+        "runtimes/win-x64/native/nfd.dll",
+        "runtimes/win-x64/native/nfd.exp",
+        "runtimes/win-x64/native/nfd.lib",
+        "runtimes/win-x64/native/nfd.pdb",
+        "runtimes/win-x86/native/nfd.dll",
+        "runtimes/win-x86/native/nfd.exp",
+        "runtimes/win-x86/native/nfd.lib",
+        "runtimes/win-x86/native/nfd.pdb"
       ]
     },
     "Newtonsoft.Json/13.0.3": {
@@ -603,22 +827,6 @@
         "opentk.windowing.graphicslibraryframework.nuspec"
       ]
     },
-    "SixLabors.ImageSharp/3.1.10": {
-      "sha512": "R1HEPcqx3v+kvlOTPouP0g/Nzzud9pHtjlgGbFax3Ivaz8kkaGfS2EPfyDGpmfoTUQ3nQ5wxdhYyYa9fwYA9cw==",
-      "type": "package",
-      "path": "sixlabors.imagesharp/3.1.10",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "build/SixLabors.ImageSharp.props",
-        "lib/net6.0/SixLabors.ImageSharp.dll",
-        "lib/net6.0/SixLabors.ImageSharp.xml",
-        "sixlabors.imagesharp.128.png",
-        "sixlabors.imagesharp.3.1.10.nupkg.sha512",
-        "sixlabors.imagesharp.nuspec"
-      ]
-    },
     "System.Buffers/4.5.1": {
       "sha512": "Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
       "type": "package",
@@ -771,11 +979,13 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "CsvHelper >= 33.1.0",
       "ICSharpCode.Decompiler >= 9.1.0.7988",
       "ImGui.NET >= 1.91.6.1",
+      "Magick.NET-Q8-AnyCPU >= 14.8.0",
+      "NativeFileDialogSharp >= 0.5.0",
       "Newtonsoft.Json >= 13.0.3",
-      "OpenTK >= 4.9.4",
-      "SixLabors.ImageSharp >= 3.1.10"
+      "OpenTK >= 4.9.4"
     ]
   },
   "packageFolders": {
@@ -822,12 +1032,16 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "CsvHelper": {
+            "target": "Package",
+            "version": "[33.1.0, )"
+          },
           "ICSharpCode.Decompiler": {
             "target": "Package",
             "version": "[9.1.0.7988, )"
@@ -836,6 +1050,14 @@
             "target": "Package",
             "version": "[1.91.6.1, )"
           },
+          "Magick.NET-Q8-AnyCPU": {
+            "target": "Package",
+            "version": "[14.8.0, )"
+          },
+          "NativeFileDialogSharp": {
+            "target": "Package",
+            "version": "[0.5.0, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
@@ -843,10 +1065,6 @@
           "OpenTK": {
             "target": "Package",
             "version": "[4.9.4, )"
-          },
-          "SixLabors.ImageSharp": {
-            "target": "Package",
-            "version": "[3.1.10, )"
           }
         },
         "imports": [
@@ -865,7 +1083,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

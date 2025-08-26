@@ -1,5 +1,6 @@
 ﻿using RGL.API.Rendering;
 using RGL.API.Rendering.Materials;
+using RGL.API.Rendering.Materials.PPMaterials;
 using RGL.API.Rendering.Shaders;
 using RGL.API.Rendering.Textures;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SGTV2.Impl.RS
 {
-    internal class InitPostProcessing : RenderScript
+    internal class InitCommonPostProcessing : RenderScript
     {
         public override void Init()
         {

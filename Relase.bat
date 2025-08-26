@@ -1,1 +1,0 @@
-dotnet build SGTV2.sln -c Release

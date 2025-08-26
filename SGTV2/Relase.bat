@@ -1,0 +1,1 @@
+dotnet build SGTV2.csproj --os win --self-contained -c Release

@@ -10,6 +10,7 @@ public static class AppResources
     }
     public static class Textures
     {
+        public const string NoTextureFoundTexture_png = "Resources/Textures/NoTextureFoundTexture.png";
     }
     public static class Fonts
     {

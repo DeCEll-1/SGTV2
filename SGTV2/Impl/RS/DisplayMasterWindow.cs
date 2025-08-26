@@ -41,9 +41,17 @@ namespace SGTV2.Impl.RS
             if (ImGui.BeginMenuBar())
             {
                 if (ImGui.BeginMenu("Tools"))
-                { // todo: cook, harder jesse, cook the star
-                    if (ImGui.MenuItem("Toggle Settings", null, Settings.DisplaySettingsMenu))
+                {
+                    if (ImGui.MenuItem("Toggle Settings Menu", null, Settings.DisplaySettingsMenu))
                         Settings.DisplaySettingsMenu = !Settings.DisplaySettingsMenu;
+
+                    ImGui.EndMenu();
+                }
+
+                if (ImGui.BeginMenu("System Generation"))
+                {
+                    if (ImGui.MenuItem("Toggle Star Menu", null, Settings.DisplayStarMenu))
+                        Settings.DisplayStarMenu = !Settings.DisplayStarMenu;
 
                     ImGui.EndMenu();
                 }

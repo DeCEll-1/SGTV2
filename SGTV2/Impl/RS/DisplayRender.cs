@@ -25,19 +25,24 @@ namespace SGTV2.Impl.RS
             System.Numerics.Vector2 size = ImGui.GetContentRegionAvail();
             Vector2i newSceneSize = new((int)size.X, (int)size.Y);
 
-            if (newSceneSize != Scene.Resolution && newSceneSize == previousSize)
+            if (newSceneSize != Scene.Resolution && newSceneSize == previousSize && newSceneSize != new Vector2i(0, 0))
             {
                 Scene.Resolution = newSceneSize;
                 Scene.Camera.screenWidth = newSceneSize.X;
                 Scene.Camera.screenHeight = newSceneSize.Y;
                 Scene.UpdateFBOs();
+                Settings.SystemSceneResolution = newSceneSize;
             }
 
             var uv0 = new System.Numerics.Vector2(0f, 1f);
             var uv1 = new System.Numerics.Vector2(1f, 0f);
 
             ImGui.Image(texId, size, uv0, uv1);
-            Scene.IsMouseOverFBO = ImGui.IsItemHovered();
+            if (ImGui.IsItemHovered())
+            {
+                Scene.IsMouseOverFBO = true;
+                ((Main)Window).OnWindow = this.GetType();
+            }
 
             ImGui.End();
 

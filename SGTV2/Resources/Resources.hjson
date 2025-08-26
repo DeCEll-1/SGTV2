@@ -1,7 +1,9 @@
 {
     "Shaders": {},
     "ComputeShaders": {},
-    "Textures": {},
+    "Textures": {
+        "NoTextureFoundTexture_png": "Resources/Textures/NoTextureFoundTexture.png"
+    },
     "Fonts": {},
     "Cubemaps": {
         "Space_1": {
